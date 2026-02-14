@@ -11,7 +11,7 @@ struct Inseto
 void bubbleSort(Inseto dados[], int n)
 {
     int mudancas = 0;
-    int tamanho;
+    float tamanho;
     string nome;
 
     for(int i = n-1; i > 0; i--)
@@ -47,13 +47,17 @@ int main()
     cout << "Digite o numero de insetos: ";
     cin >> n;
 
+    cin.ignore(); // Limpa o buffer de entrada para evitar problemas com getline
+
     for(int i = 0; i < n; i++)
     {
         cout << "Digite o tamanho do " << i+1 << " inseto: " << endl;
         cin >> dados[i].tamanho;
 
+        cin.ignore();
+
         cout << "Digite o nome do " << i+1 << " inseto: " << endl;
-        cin >> dados[i].nome;
+        getline(cin, dados[i].nome);
         
         system("cls");
     }
@@ -65,10 +69,10 @@ int main()
     cout << "Insetos ordenados por tamanho:" << endl;
     for(int i = 0; i < n; i++)
     {
-        cout << "Inseto " << i+1 << ": " << dados[i].nome << " - " << dados[i].tamanho << " cm" << endl;
+        cout << "Inseto " << i+1 << ": " << dados[i].nome << endl;
     }
 
 
-    // Complexidade do algoritmo: O(n^2) no pior caso, O(n) no melhor caso (quando os insetos já estão ordenados) e O(n^2) no caso médio. A complexidade espacial é O(1) para o Bubble Sort, pois é um algoritmo de ordenação in-place que não requer espaço adicional significativo além de algumas variáveis temporárias para a troca de elementos.
+    // Complexidade do algoritmo: O(n^2) no pior caso, O(n) no melhor caso (quando os insetos já estão ordenados) e O(n^2) no caso médio. A complexidade espacial é O(1) para o Bubble Sort.
     return 0;
 };
