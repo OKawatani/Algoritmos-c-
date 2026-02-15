@@ -54,7 +54,7 @@ int main()
         }
         else if(codigo == dados[i].codigo && dados[i].quantidades <= 0)
         {
-            cout << "Não existe " << dados[i].nome << " em estoque." << endl;
+            cout << "Nao existe " << dados[i].nome << " em estoque." << endl;
             break;
         }
         if(i == n-1)
